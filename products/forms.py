@@ -1,8 +1,10 @@
 from django import forms
 from .models import Product, Category
+from .widgets import CustomClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput())
 
     class Meta:
         model = Product
